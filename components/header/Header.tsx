@@ -4,10 +4,12 @@ import {
   Heading,
   Flex,
   Text,
-  Button,
-  useDisclosure
+  useDisclosure,
+  Spacer,
 } from "@chakra-ui/react";
+import Link from 'next/link';
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { routes } from "../../constants/routes";
 
 export const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -29,6 +31,8 @@ export const Header = () => {
         </Heading>
       </Flex>
 
+      <Spacer />
+
       <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
         <HamburgerIcon />
       </Box>
@@ -36,27 +40,16 @@ export const Header = () => {
       <Stack
         direction={{ base: "column", md: "row" }}
         display={{ base: isOpen ? "block" : "none", md: "flex" }}
-        width={{ base: "full", md: "auto" }}
-        alignItems="center"
-        flexGrow={1}
+        width={{ base: "min-content", md: "auto" }}
+        alignItems="right"
         mt={{ base: 4, md: 0 }}
       >
-        <Text>item 1</Text>
-        <Text>item 2</Text>
-        <Text>item 3</Text>
+        {routes.map((route) => (
+          <Link key={route.title} href={route.path} passHref>
+            <Text as="a">{route.title}</Text>
+          </Link>
+        ))}
       </Stack>
-
-      <Box
-        display={{ base: isOpen ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <Button
-          variant="outline"
-          _hover={{ bg: "teal.700", borderColor: "teal.700" }}
-        >
-          Create account
-        </Button>
-      </Box>
     </Flex>
   );
 };
