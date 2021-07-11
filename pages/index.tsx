@@ -1,6 +1,6 @@
-import { Flex } from "@chakra-ui/react"
-import { Container } from "@chakra-ui/react"
-import Head from 'next/head'
+import { Flex } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
+import Head from 'next/head';
 import Header from '../components/header';
 
 export default function Home() {
@@ -22,5 +22,5 @@ export default function Home() {
         </footer>
       </Container>
     </Flex>
-  )
+  );
 }
