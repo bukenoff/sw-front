@@ -10,9 +10,11 @@ import {
 import Link from 'next/link';
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { routes } from "../../constants/routes";
+import { useRouter } from "next/dist/client/router";
 
 export const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
   const handleToggle = () => (isOpen ? onClose() : onOpen());
 
   return (
@@ -47,7 +49,7 @@ export const Header = () => {
       >
         {routes.map((route) => (
           <Link key={route.title} href={route.path} passHref>
-            <Text as="a">{route.title}</Text>
+            <Text as="a" color={route.path === router.pathname ? "black" : "white"}>{route.title}</Text>
           </Link>
         ))}
       </Stack>
