@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { ChakraProvider, VStack } from "@chakra-ui/react";
 import { Container } from "@chakra-ui/react";
+import Footer from '../components/footer';
 import Header from '../components/header';
 
 function MyApp({ Component, pageProps }) {
@@ -11,9 +12,7 @@ function MyApp({ Component, pageProps }) {
       <Container maxW="container.xl" flex="1">
         <Component {...pageProps} />
       </Container>
-        <footer>
-          footer stuff
-        </footer>
+      <Footer />
       </VStack>
     </ChakraProvider>
   );
