@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import { ChakraProvider, VStack } from "@chakra-ui/react";
-import { Flex } from "@chakra-ui/react";
 import { Container } from "@chakra-ui/react";
 import Header from '../components/header';
 
