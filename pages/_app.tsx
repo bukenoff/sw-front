@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, VStack } from "@chakra-ui/react";
 import { Flex } from "@chakra-ui/react";
 import { Container } from "@chakra-ui/react";
 import Header from '../components/header';
@@ -7,15 +7,15 @@ import Header from '../components/header';
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
-      <Flex flexDirection="column" minHeight="max">
+      <VStack height="100vh">
       <Header />
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" flex="1">
         <Component {...pageProps} />
       </Container>
         <footer>
           footer stuff
         </footer>
-      </Flex>
+      </VStack>
     </ChakraProvider>
   );
 }
